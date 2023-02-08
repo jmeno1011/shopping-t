@@ -9,7 +9,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="md:container md:mx-auto">
+      <div className="mx-auto xl:screens lg:w-10/12 md:w-screen sm:w-screen">
         <header className="bg-[#35BCB2]">
           {/* logo, login / join */}
           <div className="p-4 flex justify-between items-baseline mb-4 border-solid border-0 border-b-[1px] border-slate-800">
