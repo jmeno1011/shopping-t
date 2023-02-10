@@ -1,5 +1,7 @@
 import Carousel from "@/components/carousel/Carousel";
+import Auth from "@/components/modal/Auth";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
               shopping-t
             </h1>
             <div className="flex gap-2">
+              <Auth />
               <a>로그인</a>
               <a>회원가입</a>
             </div>
@@ -41,7 +44,7 @@ export default function Home() {
         </header>
         {/* carousel */}
         <div className="p-8 bg-white">
-          <Carousel SLIDE_LEN={2}/>
+          <Carousel SLIDE_LEN={2} />
           {/* <div className="bg-slate-400 h-[350px] flex items-center justify-center">
             carousel
           </div> */}

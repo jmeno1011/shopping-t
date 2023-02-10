@@ -8,3 +8,7 @@
 
 #### serverless 하기위해
 - npm i firebase
+
+#### svg 사용하기 위해 
+- npm i @svgr/webpack
+- 일단 삭제한 상태
