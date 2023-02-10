@@ -1,3 +1,4 @@
+import Carousel from "@/components/carousel/Carousel";
 import Head from "next/head";
 
 export default function Home() {
@@ -39,10 +40,11 @@ export default function Home() {
           </nav>
         </header>
         {/* carousel */}
-        <div className="p-8">
-          <div className="bg-slate-400 h-[350px] flex items-center justify-center">
+        <div className="p-8 bg-white">
+          <Carousel SLIDE_LEN={2}/>
+          {/* <div className="bg-slate-400 h-[350px] flex items-center justify-center">
             carousel
-          </div>
+          </div> */}
         </div>
         {/* items */}
         <div className="bg-green-100 p-4">items</div>
