@@ -1,9 +1,10 @@
 import Carousel from "@/components/carousel/Carousel";
 import Auth from "@/components/modal/Auth";
 import Head from "next/head";
-import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [isOepn, setIsOpen] = useState(false);
   return (
     <>
       <Head>
@@ -12,17 +13,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mx-auto xl:screens lg:w-10/12 md:w-screen sm:w-screen">
+      <div className="mx-auto xl:screens lg:w-10/12 md:w-screen sm:w-screen relative">
         <header className="bg-[#35BCB2]">
           {/* logo, login / join */}
           <div className="p-4 flex justify-between items-baseline mb-4 border-solid border-0 border-b-[1px] border-slate-800">
             <h1 className="text-3xl font-bold underline text-slate-900">
               shopping-t
             </h1>
-            <div className="flex gap-2">
-              <Auth />
-              <a>로그인</a>
-              <a>회원가입</a>
+            <div>
+              <button onClick={() => setIsOpen(!isOepn)}>로그인</button>
             </div>
           </div>
           {/* search / profile / cart */}
@@ -51,6 +50,7 @@ export default function Home() {
         </div>
         {/* items */}
         <div className="bg-green-100 p-4">items</div>
+        {isOepn && <Auth isOpen={isOepn} />}
       </div>
     </>
   );
