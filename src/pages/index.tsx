@@ -50,7 +50,7 @@ export default function Home() {
         </div>
         {/* items */}
         <div className="bg-green-100 p-4">items</div>
-        {isOepn && <Auth isOpen={isOepn} />}
+        {isOepn && <Auth isOpen={isOepn} setIsOpen={setIsOpen}/>}
       </div>
     </>
   );
