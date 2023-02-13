@@ -1,10 +1,38 @@
 import Carousel from "@/components/carousel/Carousel";
 import Auth from "@/components/modal/Auth";
+import { auth } from "firebaseConfig";
 import Head from "next/head";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState<string | undefined>("");
   const [isOepn, setIsOpen] = useState(false);
+
+  const onSignOut = () => {
+    auth
+      .signOut()
+      .then(() => router.push("/"))
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUserName(user.email?.split("@")[0]);
+        console.log(user.email?.split("@")[0]);
+      } else {
+        setIsLoggedIn(false);
+        console.log(user);
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -21,7 +49,7 @@ export default function Home() {
               shopping-t
             </h1>
             <div>
-              <button onClick={() => setIsOpen(!isOepn)}>로그인</button>
+              {isLoggedIn ? <><span>{userName}님 어서오세요</span> / <button onClick={onSignOut}>로그아웃</button></> : <button onClick={() => setIsOpen(!isOepn)}>로그인</button>}
             </div>
           </div>
           {/* search / profile / cart */}
@@ -50,7 +78,7 @@ export default function Home() {
         </div>
         {/* items */}
         <div className="bg-green-100 p-4">items</div>
-        {isOepn && <Auth isOpen={isOepn} setIsOpen={setIsOpen}/>}
+        {isOepn && <Auth isOpen={isOepn} setIsOpen={setIsOpen} />}
       </div>
     </>
   );
