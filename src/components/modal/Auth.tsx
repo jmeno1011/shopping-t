@@ -13,6 +13,7 @@ export default function Auth({ isOpen, setIsOpen }: propsType) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [currentModal, setCurrentModal] = useState(true);
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {
@@ -28,16 +29,16 @@ export default function Auth({ isOpen, setIsOpen }: propsType) {
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
-          .then((userCredentail) => {
-            console.log(userCredentail.user);
-            setIsOpen(false);
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            console.log(error.code);
-            setError(errorMessage);
-          });
-      };
+            .then((userCredentail) => {
+                console.log(userCredentail.user);
+                setIsOpen(false);
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.log(error.code);
+                setError(errorMessage);
+            });
+    };
 
     return (
         <div className={isOpen ? "fixed bg-black/40 left-0 top-0 w-full h-full" : "hidden"}>
@@ -47,11 +48,11 @@ export default function Auth({ isOpen, setIsOpen }: propsType) {
                 }
             >
                 <div className="w-full flex justify-end pt-2 px-4"><button onClick={() => setIsOpen(!isOpen)}>X</button></div>
-                <h1 className="text-lg my-2 font-bold"><span className="text-[#35BCB2]">Sign In </span>to tono-shop</h1>
+                <h1 className="text-lg my-2 font-bold"><span className="text-[#35BCB2]">{currentModal ? "Sign In" : "Sign Up"} </span>to tono-shop</h1>
                 <form className="w-full flex flex-col justify-center items-center" onSubmit={onSubmit}>
                     <input
                         type={"email"}
-                        className="w-[calc(100%-1rem)] p-2 mb-2 border-solid border-0 border-b-[1px] border-slate-400" 
+                        className="w-[calc(100%-1rem)] p-2 mb-2 border-solid border-0 border-b-[1px] border-slate-400"
                         name="email"
                         value={email}
                         onChange={onChange}
@@ -63,8 +64,11 @@ export default function Auth({ isOpen, setIsOpen }: propsType) {
                         value={password}
                         onChange={onChange}
                     />
-                    <button className="w-[calc(100%-1rem)] mb-2 border-solid border-[1px] border-slate-400">로그인</button>
                 </form>
+                <div className="w-[calc(100%-1rem)] flex gap-2">
+                    <button className={`w-[calc(50%-0.25rem)] mb-2 border-solid border-[1px] border-slate-400 bg-${currentModal?"[#35BCB2]":"transparent"}`} onClick={() => { setCurrentModal(true) }}>로그인</button>
+                    <button className={`w-[calc(50%-0.25rem)] mb-2 border-solid border-[1px] border-slate-400 bg-${!currentModal?"[#35BCB2]":"transparent"}`} onClick={() => { setCurrentModal(false) }}>회원가입</button>
+                </div>
                 <div className="flex gap-2">
                     <button className="mb-2 px-1 py-2 w-[180px] flex items-center bg-white h-[40px] border-solid border-[1px] border-slate-400">
                         <Image
