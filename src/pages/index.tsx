@@ -2,6 +2,7 @@ import Carousel from "@/components/carousel/Carousel";
 import Auth from "@/components/modal/Auth";
 import { auth } from "firebaseConfig";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -49,7 +50,7 @@ export default function Home() {
               shopping-t
             </h1>
             <div>
-              {isLoggedIn ? <><span>{userName}님 어서오세요</span> / <button onClick={onSignOut}>로그아웃</button></> : <button onClick={() => setIsOpen(!isOepn)}>로그인</button>}
+              {isLoggedIn ? <><span>{userName}님 어서오세요</span> / <button onClick={onSignOut}>로그아웃</button></> : <Link href="/login">로그인</Link>}
             </div>
           </div>
           {/* search / profile / cart */}
