@@ -1,4 +1,5 @@
-import Carousel from "@/components/carousel/Carousel";
+import Carousel from "@/components/home/carousel/Carousel";
+import CategoryRow from "@/components/home/categories/CategoryRow";
 import { auth } from "firebaseConfig";
 import Head from "next/head";
 import Link from "next/link";
@@ -77,6 +78,7 @@ export default function Home() {
         </div>
         {/* items */}
         <div className="bg-green-100 p-4">items</div>
+        <CategoryRow />
       </div>
     </>
   );

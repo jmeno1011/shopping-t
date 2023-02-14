@@ -1,4 +1,4 @@
-import SocialButtonGroup from '@/components/auth/SocialButtonGroup';
+import SocialButtonGroup from '@/components/home/auth/SocialButtonGroup';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'firebaseConfig';
 import Link from 'next/link';
