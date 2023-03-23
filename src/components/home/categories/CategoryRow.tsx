@@ -22,10 +22,8 @@ export default function CategoryRow() {
                                 alt="#"
                                 width={190}
                                 height={190}
-                                fill
+                                // fill
                                 style={{objectFit:'contain'}}
-                                // sizes="100vw"
-                                // className='w-full h-auto'
                             />
                         </div>
                         <h5 className='p-1 text-center'>{category.name}</h5>
