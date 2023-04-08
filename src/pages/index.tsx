@@ -11,18 +11,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="mx-auto xl:screens lg:w-10/12 md:w-screen sm:w-screen relative">
-        
+      <div className="mx-auto xl:screens lg:w-10/12 md:w-screen sm:w-screen relative bg-white">
         {/* carousel */}
         <div className="p-8 bg-white">
           <Carousel SLIDE_LEN={2} />
-          {/* <div className="bg-slate-400 h-[350px] flex items-center justify-center">
-            carousel
-          </div> */}
         </div>
         {/* items */}
-        <div className="bg-green-100 p-4">items</div>
-        <CategoryRow />
+        <div className="bg-green-100 py-4">
+          <CategoryRow />
+        </div>
       </div>
     </>
   );
