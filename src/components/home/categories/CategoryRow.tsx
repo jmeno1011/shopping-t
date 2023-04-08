@@ -15,18 +15,14 @@ export default function CategoryRow() {
         <div className='flex'>
             {
                 categoryList.map(category => (
-                    <div key={category.name} className="flex flex-col grow bg-white">
-                        <div>
+                    <div key={category.name} className="w-[190px] h-[190px] bg-white relative">
                             <Image
                                 src={category.imgUrl}
                                 alt="#"
-                                width={190}
-                                height={190}
-                                // fill
-                                style={{objectFit:'contain'}}
+                                className='pb-[32px]'
+                                fill
                             />
-                        </div>
-                        <h5 className='p-1 text-center'>{category.name}</h5>
+                        <h5 className='p-1 absolute bottom-0 w-full text-center'>{category.name}</h5>
                     </div>
                 ))
             }
