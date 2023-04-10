@@ -13,7 +13,7 @@ const Header = ({ isLoggedIn, userName, onSignOut }: HeaderProps) => {
       {/* logo, login / join */}
       <div className="p-4 flex justify-between items-baseline mb-4 border-solid border-0 border-b-[1px] border-slate-800">
         <h1 className="text-3xl font-bold underline text-slate-900">
-          shopping-t
+          <Link href={"/"}>shopping-t</Link>
         </h1>
         <div>
           {isLoggedIn ?
