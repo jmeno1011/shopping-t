@@ -31,16 +31,16 @@ const Category = ({ category }: CategoryProps) => {
                 product_cloths.map(cloth => (
                   <div key={cloth.id}>
                     <Link href={`${category}/${cloth.id}`} className='block w-64 h-64 relative'>
-                    <Image src={cloth.thumnail} fill className='pb-11' alt={cloth.name} />
-                    <div className='absolute bottom-0'>
-                      <div className='px-2 flex flex-col'>
-                        <div>
-                          <h6 className='inline-block mr-2 '>{cloth.name}</h6>
-                          <span className='text-xs text-gray-500'>{cloth.category}</span>
+                      <Image src={cloth.thumnail} fill className='pb-11' alt={cloth.name} />
+                      <div className='absolute bottom-0'>
+                        <div className='px-2 flex flex-col'>
+                          <div>
+                            <h6 className='inline-block mr-2 '>{cloth.name}</h6>
+                            <span className='text-xs text-gray-500'>{cloth.category}</span>
+                          </div>
+                          <span className='block text-sm font-semibold'>{cloth.price}</span>
                         </div>
-                        <span className='block text-sm font-semibold'>{cloth.price}</span>
                       </div>
-                    </div>
                     </Link>
                   </div>
                 ))
