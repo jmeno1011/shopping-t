@@ -18,13 +18,13 @@ export default function CategoryRow() {
                 categoryList.map(category => (
                     <div key={category.name} >
                         <Link href={category.url} className="inline-block w-[190px] h-[190px] bg-white relative">
-                        <Image
-                            src={category.imgUrl}
-                            alt="#"
-                            className='pb-[32px]'
-                            fill
-                        />
-                        <h5 className='p-1 absolute bottom-0 w-full text-center'>{category.name}</h5>
+                            <Image
+                                src={category.imgUrl}
+                                alt="#"
+                                className='pb-[32px]'
+                                fill
+                            />
+                            <h5 className='p-1 absolute bottom-0 w-full text-center'>{category.name}</h5>
                         </Link>
                     </div>
                 ))
