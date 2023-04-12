@@ -17,7 +17,7 @@ export default function Home() {
           <Carousel SLIDE_LEN={2} />
         </div>
         {/* items */}
-        <div className="bg-green-100 py-4">
+        <div className="bg-green-100 p-4">
           <CategoryRow />
         </div>
       </div>

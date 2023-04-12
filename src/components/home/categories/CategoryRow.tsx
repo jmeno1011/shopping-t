@@ -13,7 +13,7 @@ const categoryList = [
 
 export default function CategoryRow() {
     return (
-        <div className='flex justify-center items-center gap-4'>
+        <div className='flex 2xl:justify-center items-center gap-4 overflow-x-auto xl:justify-start'>
             {
                 categoryList.map(category => (
                     <div key={category.name} >
